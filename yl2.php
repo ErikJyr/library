@@ -7,28 +7,29 @@
 <body>
 
     <form method="post">
-        <label for="raadius">RAADIUS:</label>
-        <input type="number" name="raadius" id="raadius" step="1" required>
-        <button type="submit">Arvuta</button>
+        <label for="radius">Radius:</label>
+        <input type="number" name="radius" id="radius" step="0.01" required>
+        <button type="submit">Calculate</button>
     </form>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+        
+        // Set the values and get user input
         $a = 3.14;
-        $b = $_POST["raadius"];
+        $b = $_POST["radius"];
 
-        // Pindala
+        // Calculate area
         $c = $a * ((int)$b ** 2);
         $d = round($c, 2);
 
-        echo "<p>PINDALA: $d</p>";
+        echo "<p>AREA: $d</p>";
 
-        // Ümbermõõt
+        // Calculate circumference
         $e = 2 * $a * (int)$b;
         $f = round($e, 2);
 
-        echo "<p>ÜMBERMÕÕT: $f</p>";
+        echo "<p>CIRCUMFERENCE: $f</p>"; // Display the circumference in the web page
     }
     ?>
 
